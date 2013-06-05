@@ -6,21 +6,50 @@ gem 'rails', '3.2.11'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
+gem 'aws-sdk'
+gem 'jquery-rails'
+# gem 'unicorn'
+gem 'backbone-on-rails'
+gem 'simple_form'
+gem "paperclip", "~> 3.4.0"
+gem 'taps', :require => false
+gem 'will_paginate', '~> 3.0.0'
 
+group :production do
+	gem "pg"
+end
 
-# Gems used only for assets and not required
-# in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
+	gem 'sass-rails',   '~> 3.2.3'
+  gem 'bootstrap-sass-rails'
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'compass', '>= 0.12.2'
+  gem 'compass-rails'
+  gem 'susy'
 end
 
-gem 'jquery-rails'
+
+group :development do
+  gem "nifty-generators"	
+	gem 'debugger'
+  # gem 'bullet'
+end
+
+group :test do
+  gem 'sqlite3'
+  gem "rspec-rails", "~> 2.0"	
+  gem 'capybara'
+  gem 'cucumber-rails'
+  gem 'launchy'
+  gem 'database_cleaner'
+  gem 'factory_girl'
+	#gem "mocha"
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -12,31 +12,46 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: nideo_development
+  database: nestle_development
   pool: 5
   username: root
-  password:
-  socket: /tmp/mysql.sock
+  password: 
+  # socket: /tmp/mysql.sock
+
+# LIVE DATABASE DON'T TOUCH
+  # adapter: postgresql
+  # encoding: unicode
+  # pool: 5
+  # database: d1obp9it2l0k51
+  # username: ekqlfulygokbli
+  # password: NAPyXALUtlW2u6ZaPDmcxwmHqR
+  # host: ec2-107-21-107-3.compute-1.amazonaws.com
+  # port: 5432
+
+
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
+test: &test
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: nideo_test
+  database: nestle_test
   pool: 5
   username: root
-  password:
-  socket: /tmp/mysql.sock
+  password: password
+#  socket: /tmp/mysql.sock
 
 production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: nideo_production
+  database: nestle_production
   pool: 5
   username: root
-  password:
-  socket: /tmp/mysql.sock
+  password: password
+#  socket: /tmp/mysql.sock
+
+cucumber:
+  <<: *test

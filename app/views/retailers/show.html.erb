@@ -1,0 +1,16 @@
+<% title "Retailer" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @retailer.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @retailer.description %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_retailer_path(@retailer) %> |
+  <%= link_to "Destroy", @retailer, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", retailers_path %>
+</p>

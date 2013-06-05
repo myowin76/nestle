@@ -1,0 +1,19 @@
+<% title "Retailers" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <% for retailer in @retailers %>
+    <tr>
+      <td><%= retailer.name %></td>
+      <td><%= retailer.description %></td>
+      <td><%= link_to "Show", retailer %></td>
+      <td><%= link_to "Edit", edit_retailer_path(retailer) %></td>
+      <td><%= link_to "Destroy", retailer, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Retailer", new_retailer_path %></p>

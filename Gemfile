@@ -8,7 +8,7 @@ gem 'rails', '3.2.11'
 gem 'mysql2'
 gem 'aws-sdk'
 gem 'jquery-rails'
-# gem 'unicorn'
+gem 'unicorn'
 gem 'backbone-on-rails'
 gem 'simple_form'
 gem "paperclip", "~> 3.4.0"

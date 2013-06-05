@@ -1,0 +1,21 @@
+<% title "Gtins" %>
+
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Gtin</th>
+    <th>Version</th>
+  </tr>
+  <% for gtin in @gtins %>
+    <tr>
+      <td><%= gtin.product %></td>
+      <td><%= gtin.gtin %></td>
+      <td><%= gtin.version %></td>
+      <td><%= link_to "Show", gtin %></td>
+      <td><%= link_to "Edit", edit_gtin_path(gtin) %></td>
+      <td><%= link_to "Destroy", gtin, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Gtin", new_gtin_path %></p>

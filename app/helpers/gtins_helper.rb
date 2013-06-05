@@ -1,0 +1,2 @@
+module GtinsHelper
+end

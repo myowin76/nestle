@@ -1,4 +1,10 @@
 Nideo::Application.routes.draw do
+  resources :gtins
+
+  resources :products
+
+  resources :audits
+
   resources :retailers
 
   # The priority is based upon order of creation:

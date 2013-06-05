@@ -1,0 +1,12 @@
+<%= form_for @audit do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :gtin %><br />
+    <%= f.text_field :gtin %>
+  </p>
+  <p>
+    <%= f.label :retailer %><br />
+    <%= f.text_field :retailer %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

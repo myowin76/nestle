@@ -1,0 +1,19 @@
+<% title "Audits" %>
+
+<table>
+  <tr>
+    <th>Gtin</th>
+    <th>Retailer</th>
+  </tr>
+  <% for audit in @audits %>
+    <tr>
+      <td><%= audit.gtin %></td>
+      <td><%= audit.retailer %></td>
+      <td><%= link_to "Show", audit %></td>
+      <td><%= link_to "Edit", edit_audit_path(audit) %></td>
+      <td><%= link_to "Destroy", audit, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Audit", new_audit_path %></p>

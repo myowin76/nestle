@@ -1,0 +1,20 @@
+<% title "Gtin" %>
+
+<p>
+  <strong>Product:</strong>
+  <%= @gtin.product %>
+</p>
+<p>
+  <strong>Gtin:</strong>
+  <%= @gtin.gtin %>
+</p>
+<p>
+  <strong>Version:</strong>
+  <%= @gtin.version %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_gtin_path(@gtin) %> |
+  <%= link_to "Destroy", @gtin, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", gtins_path %>
+</p>

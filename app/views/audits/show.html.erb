@@ -1,0 +1,16 @@
+<% title "Audit" %>
+
+<p>
+  <strong>Gtin:</strong>
+  <%= @audit.gtin %>
+</p>
+<p>
+  <strong>Retailer:</strong>
+  <%= @audit.retailer %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_audit_path(@audit) %> |
+  <%= link_to "Destroy", @audit, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", audits_path %>
+</p>

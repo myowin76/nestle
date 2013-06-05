@@ -1,0 +1,9 @@
+one:
+  code: MyString
+  name: MyString
+  description: MyText
+
+two:
+  code: MyString
+  name: MyString
+  description: MyText

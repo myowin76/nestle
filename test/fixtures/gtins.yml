@@ -1,0 +1,9 @@
+one:
+  product: 
+  gtin: MyString
+  version: MyString
+
+two:
+  product: 
+  gtin: MyString
+  version: MyString

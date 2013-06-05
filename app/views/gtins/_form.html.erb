@@ -1,0 +1,16 @@
+<%= form_for @gtin do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :product %><br />
+    <%= f.text_field :product %>
+  </p>
+  <p>
+    <%= f.label :gtin %><br />
+    <%= f.text_field :gtin %>
+  </p>
+  <p>
+    <%= f.label :version %><br />
+    <%= f.text_field :version %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

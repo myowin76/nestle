@@ -14,6 +14,7 @@ gem 'simple_form'
 gem "paperclip", "~> 3.4.0"
 gem 'taps', :require => false
 gem 'will_paginate', '~> 3.0.0'
+gem 'nokogiri'
 
 group :production do
 	gem "pg"

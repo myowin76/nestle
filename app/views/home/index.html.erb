@@ -1,9 +1,26 @@
 <h1>Dashboard</h1>
-
+<!-- 
 <ul>
 	<% @gtins.each do |gtin| %>
-	<li><%= gtin.gtin %></li>
+	<li><%#= gtin.gtin %></li>
 	<% end %>
 </ul>
 
-<%= will_paginate @gtins %>
+<%#= will_paginate @gtins %> -->
+
+<% #if params[:gtin].present? %>
+	<%#= params[:gtin] %><br />
+<% #end %>
+
+
+      GTIN                 |	Description <br />
+------------------------------------------------------------------------<br />
+<% @products.each do |product| %>
+	<%= product.at("Code[Scheme='GTIN']").text %> | 
+	<%#= product.at("Subscription").text %>
+	<%= product.at("DiagnosticDescription").text %> |
+	<%= product.at("Subscription")["Id"] %> | 
+		
+
+	<%= link_to 'Edit', audit_product_path(product.at("Code[Scheme='GTIN']").text) %> <br />
+<% end %>

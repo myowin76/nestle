@@ -9,6 +9,9 @@ Nideo::Application.routes.draw do
 
   resources :retailers
 
+
+  match 'audits/product/:gtin' => 'audits#audit_product', :as => :audit_product
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

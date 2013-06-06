@@ -1,6 +1,19 @@
 class AuditsController < ApplicationController
   def index
+
     @audits = Audit.all
+  end
+
+  def audit_product
+    
+    @gtin = params[:gtin]
+    @retailers = Retailer.all
+
+    doc = Nokogiri::XML(File.open("#{Rails.root}/public/nestle.xml")) 
+     @products = doc.xpath("//Product")
+    # @product = doc.xpath("//Product").at_css("Code")[]
+    # debugger
+    
   end
 
   def show

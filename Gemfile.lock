@@ -228,6 +228,7 @@ DEPENDENCIES
   launchy
   mysql2
   nifty-generators
+  nokogiri
   paperclip (~> 3.4.0)
   pg
   rails (= 3.2.11)

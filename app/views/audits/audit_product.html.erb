@@ -1,0 +1,9 @@
+
+
+<%= select_tag "retailer_id", options_from_collection_for_select(
+          Retailer.all, "id", "name"), {:prompt => 'Please Select' }%>
+
+          <br />
+Gtin: 
+<%= @gtin %><br />
+<img src="/assets/<%= @gtin %>.jpg" alt="" width="200">

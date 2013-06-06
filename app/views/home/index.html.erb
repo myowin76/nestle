@@ -1,0 +1,9 @@
+<h1>Dashboard</h1>
+
+<ul>
+	<% @gtins.each do |gtin| %>
+	<li><%= gtin.gtin %></li>
+	<% end %>
+</ul>
+
+<%= will_paginate @gtins %>

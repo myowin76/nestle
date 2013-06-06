@@ -1,9 +1,18 @@
 
 
 <%= select_tag "retailer_id", options_from_collection_for_select(
-          Retailer.all, "id", "name"), {:prompt => 'Please Select' }%>
+  Retailer.all, "id", "name"), {:prompt => 'Please Select' }%>
 
-          <br />
+<br />
+
 Gtin: 
-<%= @gtin %><br />
+<%= @gtin %>
+
+<br />
+
 <img src="/assets/<%= @gtin %>.jpg" alt="" width="200">
+
+
+<%= simple_form_for @audit, :validate => true, :html => { :multipart => true } do |f| %>
+	<%= f.input :status_id, :collection => Status.all,   as: :radio_buttons, :label => false %>
+<% end %>	

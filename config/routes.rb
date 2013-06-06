@@ -1,4 +1,6 @@
 Nideo::Application.routes.draw do
+  resources :statuses
+
   get "home/index"
 
   resources :gtins

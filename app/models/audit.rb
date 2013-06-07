@@ -2,7 +2,8 @@ class Audit < ActiveRecord::Base
   attr_accessible :gtin, :retailer_id
 
   belongs_to :retailer
-
+  has_many :retailer_fields
+  has_attached_file :image
 
 
 

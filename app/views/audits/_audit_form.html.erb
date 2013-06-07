@@ -1,0 +1,73 @@
+
+
+<%#= simple_form_for @audit, :validate => true, :html => { :multipart => true } do |f| %>
+	
+
+	<%#= f.input :field_name, :as => :hidden, :input_html => {:value => store.id} %>
+	<table class="table table-striped" id="tbl-products" border='1'>
+  <!-- <thead>
+    <tr>    
+      <th>GTIN</th>
+      <th>Description</th>
+      <th>Product Id</th>
+    </tr>
+  </thead> -->
+  <tbody>
+  	<tr>
+  		<td>
+  			GTIN
+  		</td>
+  		<td>
+  			<%= @gtin %>
+  		</td>
+      <td>
+        <input type="radio" name="status" value="male">Pass<br>
+        <input type="radio" name="status" value="female">Fail<br>
+        <input type="radio" name="status" value="female">Missing
+      </td>
+    </tr>
+    <tr>  
+      <td>
+        Description
+      </td>
+      <td>
+        Purina® Beggin Strips Turkey & Bacon Flavour Treat For Dogs, 85g
+      </td>
+  		<td>
+  			<%#= f.input :status_id, :collection => Status.all,   as: :radio_buttons, :label => false %>
+
+  			<input type="radio" name="status" value="male">Pass<br>
+				<input type="radio" name="status" value="female">Fail<br>
+				<input type="radio" name="status" value="female">Missing
+  		</td>
+  	</tr>
+
+  	<tr>
+  		<td>
+  			Image
+  		</td>
+  		<td>
+  			<img src="/assets/<%= @gtin %>.jpg" alt="" width="200">
+  		</td>
+  		<td>
+  			<%#= f.input :status_id, :collection => Status.all,   as: :radio_buttons, :label => false %>
+  		</td>
+  	</tr>
+
+  	<tr>
+  		<td>
+  			Manufacturers address:
+  		</td>
+  		<td>
+  			Nestlé Purina PetCare (UK) Limited, PO Box 297,New Malden, KT3 4WL.
+  		</td>
+  		<td>
+  			<%#= f.input :status_id, :collection => Status.all,   as: :radio_buttons, :label => false %>
+  		</td>
+  	</tr>
+
+  </tbody>
+</table>	
+
+	<%#= f.button :submit, "Submit" %>
+<%# end %>	

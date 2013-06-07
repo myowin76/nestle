@@ -6,17 +6,17 @@ class HomeController < ApplicationController
   	@products = doc.xpath("//Product")
   	# @existing_products = Product.all
   	# debugger
-  	@products.each do |product|
+  	# @products.each do |product|
 	# 	gtin = product.at("Code").text
 	# 	# subscription = product.at("Subscription").text
 	# 	description = product.at("DiagnosticDescription").text
-		product_id = product.at("Subscription")["Id"]
-		product_code = product.at("Subscription")["Code"]
+		# product_id = product.at("Subscription")["Id"]
+		# product_code = product.at("Subscription")["Code"]
 
 
-	end
+	# end
 
-	
+	# doc.close
 
   end
 end

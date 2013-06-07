@@ -13,14 +13,26 @@
 <% #end %>
 
 
-      GTIN                 |	Description <br />
-------------------------------------------------------------------------<br />
-<% @products.each do |product| %>
-	<%= product.at("Code[Scheme='GTIN']").text %> | 
-	<%#= product.at("Subscription").text %>
-	<%= product.at("DiagnosticDescription").text %> |
-	<%= product.at("Subscription")["Id"] %> | 
-		
+<table class="table table-striped" id="tbl-audits" border='1'>
+  <thead>
+    <tr>    
+      <th>GTIN</th>
+      <th>Description</th>
+      <th>Product Id</th>
+      <th>Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @products.each do |product| %>
+	  	<tr>
+				<td><%= product.at("Code[Scheme='GTIN']").content %></td>
+				<!-- <td><%#= product.at("Subscription").text %></td> -->
+				<td><%= product.at("DiagnosticDescription").content %></td>
+				<td><%= product.at("Subscription")["Id"] %></td>
+				
+				<td><%= link_to 'Edit', audit_product_path(product.at("Code[Scheme='GTIN']").text) %></td>
+			</tr>	
+		<% end %>
 
-	<%= link_to 'Edit', audit_product_path(product.at("Code[Scheme='GTIN']").text) %> <br />
-<% end %>
+  </tbody>
+</table>

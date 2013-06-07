@@ -7,7 +7,12 @@ Nideo::Application.routes.draw do
 
   resources :products
 
-  resources :audits
+  resources :audits do
+    collection do
+      post :audit_product
+      post :update_audit
+    end
+  end
 
   resources :retailers
 

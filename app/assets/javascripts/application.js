@@ -13,3 +13,58 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+
+
+
+
+$(document).ready(function() {
+
+
+
+	$('input[name="audit[status_id]"]:radio').change(function(){
+		// alert($(this).val());
+		var retailer_id = $('#retailer_id').val();
+		if(retailer_id == ""){
+			alert("please choose retailer first");
+			return false;
+		}
+
+		var info = {}
+	  info['retailer_id'] = retailer_id;
+
+	  $.ajax({
+      url: '/audits/update_audit',
+      type: "POST",
+      dataType: 'script',
+      data: info,
+      success: function(data){
+
+      }
+    });
+
+	});
+
+
+$('#retailer_id').on('change', function(){
+	// alert("changed");
+    var retailer_id = $(this).val();
+    var info = {}
+    info['retailer_id'] = $(this).val();
+    info['gtin'] = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+    // info['pre_selected_brand_ids'] = pre_selected_brand_ids;
+    $.ajax({
+      url: '/audits/audit_product',
+      type: "POST",
+      dataType: 'script',
+      data: info,
+      success: function(data){
+
+      }
+    });
+  })
+
+
+
+
+});

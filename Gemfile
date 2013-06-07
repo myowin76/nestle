@@ -15,6 +15,7 @@ gem "paperclip", "~> 3.4.0"
 gem 'taps', :require => false
 gem 'will_paginate', '~> 3.0.0'
 gem 'nokogiri'
+# gem 'jquery-datatables-rails'
 
 group :production do
 	gem "pg"

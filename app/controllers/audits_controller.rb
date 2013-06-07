@@ -6,6 +6,7 @@ class AuditsController < ApplicationController
 
   def audit_product
 
+    @retailers = Retailer.order(:name)
     @gtin = params[:gtin]
     # @audits = Audit.order(:id)  
 
@@ -21,6 +22,7 @@ class AuditsController < ApplicationController
 
     # 
     if params[:retailer_id].present?
+    
       retailer_id = params[:retailer_id]
       if @audits.where(:retailer_id => retailer_id).present?
         # Product existed for the Retailer(Tesco e.g) - to be show data or update
@@ -36,29 +38,17 @@ class AuditsController < ApplicationController
     end
 
 
-
-
     debugger
 
-    
-    @gtin = params[:gtin]
-
-    @retailers = Retailer.order(:name)
-
+    # Read XML file
     @doc = Nokogiri::XML(File.open("#{Rails.root}/public/nestle.xml")) 
-
     @products = @doc.xpath("//Product")
-    # debugger
-    # @products.each do |product|
-    #   # if(@products.at_css("Code[Scheme='GTIN']").content == @gtin)
-    #   if(product.at_css("ProductCodes Code[Scheme='GTIN']").text == @gtin)
-    #     @product = product
-    #   end
-    # end
-    # debugger
 
+    # TO DO... FIND THE PRODUCT NODE AND FETCH THE DATA...
+    # TO DO...
 
     respond_to do |format|
+      format.html
       format.js {
         render :partial => 'audit_product'
       }

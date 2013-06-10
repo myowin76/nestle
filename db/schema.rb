@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130607171457) do
+ActiveRecord::Schema.define(:version => 20130610165603) do
 
   create_table "audits", :force => true do |t|
     t.string   "gtin"
@@ -29,8 +29,9 @@ ActiveRecord::Schema.define(:version => 20130607171457) do
     t.integer  "product_id"
     t.string   "gtin"
     t.string   "version"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "description"
   end
 
   create_table "images", :force => true do |t|
@@ -51,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20130607171457) do
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "product_id"
   end
 
   create_table "retailer_fields", :force => true do |t|

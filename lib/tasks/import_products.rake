@@ -1,4 +1,4 @@
-task :import_product => :environment do
+task :import_products => :environment do
 
 require 'nokogiri'
 
@@ -9,24 +9,37 @@ require 'nokogiri'
   products = doc.search('//Product')
 
     products.each do |product|
-
-      @data = Product.new(
-        :name           => product.at('name').text,
-        :date           => '2011-09-18',
-        :time           => '17:00',
-        :description    => product.at('Subscription').text,
-        :address        => product.at('street').text,
-        :postcode       => product.at('postcode').text,   
-        :price          => product.at('costs').text,
+      # id = product.at("Subscription")["Id"]
+      # prod = Product.find_by_id(id)
+      # if prod.nil?
+        @data = Gtin.new(
+        # :product_id     => product.at("Subscription")["Id"],
+        :gtin           => product.at("Code[Scheme='GTIN']").text,
+        # :code           => product.at("Subscription")["Code"],
+        # :name           => product.at('name').text,
+        # :date           => '2011-09-18',
+        # :time           => '17:00',
+        # :name           => product.at("Subscription").text,
+        :description    => product.at('DiagnosticDescription').text
+        # :address        => product.at('street').text,
+        # :postcode       => product.at('postcode').text,   
+        # :price          => product.at('costs').text,
         # :town_id        => 1
       )
 
-      @data.save
+        @data.save
 
-      if @data.save
-          puts "Success"
-      else
-          puts "This didn't save, F***"
-      end
+        if @data.save
+            puts "Success"
+        else
+            puts "This didn't save, F***"
+        end
+      # else
+
+
+
+      # end
+
+      
     end
 end

@@ -14,7 +14,7 @@ require 'nokogiri'
         :name           => product.at('name').text,
         :date           => '2011-09-18',
         :time           => '17:00',
-        :description    => product.at('long_description').text,
+        :description    => product.at('Subscription').text,
         :address        => product.at('street').text,
         :postcode       => product.at('postcode').text,   
         :price          => product.at('costs').text,

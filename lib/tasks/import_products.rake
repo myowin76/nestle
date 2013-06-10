@@ -11,14 +11,14 @@ require 'nokogiri'
     products.each do |product|
 
       @data = Product.new(
-        :name           => event.at('name').text,
+        :name           => product.at('name').text,
         :date           => '2011-09-18',
         :time           => '17:00',
-        :description    => event.at('long_description').text,
-        :address        => event.at('street').text,
-        :postcode       => event.at('postcode').text,   
-        :price          => event.at('costs').text,
-        :town_id        => 1
+        :description    => product.at('long_description').text,
+        :address        => product.at('street').text,
+        :postcode       => product.at('postcode').text,   
+        :price          => product.at('costs').text,
+        # :town_id        => 1
       )
 
       @data.save

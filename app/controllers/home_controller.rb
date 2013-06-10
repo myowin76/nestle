@@ -2,11 +2,11 @@ class HomeController < ApplicationController
   def index
   	@gtins = Gtin.paginate(:page => params[:page], :per_page => 30)
     # debugger
-  	doc = Nokogiri::XML(File.open("#{Rails.root}/public/nestle.xml")) 
+  	# doc = Nokogiri::XML(File.open("#{Rails.root}/public/nestle.xml")) 
 
-    # doc = Nokogiri::XML(File.open("#{asset_path}/nestle.xml")) 
-  	@products = doc.xpath("//Product")
-    debugger
+   #  # doc = Nokogiri::XML(File.open("#{asset_path}/nestle.xml")) 
+  	# @products = doc.xpath("//Product")
+   #  debugger
   	# @existing_products = Product.all
   	# debugger
   	# @products.each do |product|

@@ -18,21 +18,36 @@
     <tr>    
       <th>GTIN</th>
       <th>Description</th>
-      <th>Product Id</th>
-      <th>Edit</th>
+      <th>Completed Retailers</th>
+      <th>Outstanding Retailers</th>
+      <td>Edit</td>
     </tr>
   </thead>
   <tbody>
-  	<% @products.each do |product| %>
-	  	<tr>
-				<td><%= product.at("Code[Scheme='GTIN']").content %></td>
-				<!-- <td><%#= product.at("Subscription").text %></td> -->
-				<td><%= product.at("DiagnosticDescription").content %></td>
-				<td><%= product.at("Subscription")["Id"] %></td>
+  	<%# @products.each do |product| %>
+	  	<!-- <tr>
+				<td><%#= product.at("Code[Scheme='GTIN']").content %></td>
+				<td><%#= product.at("Subscription").text %></td>
+				<td><%#= product.at("DiagnosticDescription").content %></td>
+				<td><%#= product.at("Subscription")["Id"] %></td>
 				
-				<td><%= link_to 'Edit', audit_product_path(product.at("Code[Scheme='GTIN']").text) %></td>
-			</tr>	
-		<% end %>
+				<td><%#= link_to 'Edit', audit_product_path(product.at("Code[Scheme='GTIN']").text) %></td>
+			</tr>	 -->
+		<%# end %>
 
+
+		<% @gtins.each do |gtin| %>
+		<tr>
+			<td><%= gtin.gtin %></td>
+			<td>to do</td>
+			<td>
+				<%= Retailer.find_all_by_id(gtin.audits.map(&:retailer_id).split(",")).map(&:name).join(",") %>
+				
+			</td>
+			<td>to do</td>
+			<td><%= link_to 'Edit', audit_product_path(gtin.gtin) %></td>
+		</tr>	
+		<% end %>
+		<%= will_paginate @gtins %>
   </tbody>
 </table>

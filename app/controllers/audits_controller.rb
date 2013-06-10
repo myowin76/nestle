@@ -27,7 +27,7 @@ class AuditsController < ApplicationController
       if @audits.where(:retailer_id => retailer_id).present?
         # Product existed for the Retailer(Tesco e.g) - to be show data or update
         @audit = @audits.where(:retailer_id => retailer_id, :gtin => @gtin)
-
+        
 
       else
         # New Product for the Retailer(Tesco e.g) - add to Audit and build properties
@@ -38,7 +38,7 @@ class AuditsController < ApplicationController
     end
 
 
-    debugger
+    # debugger
 
     # Read XML file
     @doc = Nokogiri::XML(File.open("#{Rails.root}/public/nestle.xml")) 

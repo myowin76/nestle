@@ -18,12 +18,12 @@
   			GTIN
   		</td>
   		<td>
-  			<%= @gtin %>
+  			<%= @gtin.gtin %>
   		</td>
       <td>
-        <input type="radio" name="status" value="male">Pass<br>
-        <input type="radio" name="status" value="female">Fail<br>
-        <input type="radio" name="status" value="female">Missing
+        <input type="radio" name="gtin" value="pass">Pass<br>
+        <input type="radio" name="gtin" value="fail">Fail<br>
+        <input type="radio" name="gtin" value="missing">Missing
       </td>
     </tr>
     <tr>  
@@ -31,14 +31,15 @@
         Description
       </td>
       <td>
-        Purina® Beggin Strips Turkey & Bacon Flavour Treat For Dogs, 85g
+        <%= @products.at("DiagnosticDescription").text %>
+        <!-- Purina® Beggin Strips Turkey & Bacon Flavour Treat For Dogs, 85g -->
       </td>
   		<td>
   			<%#= f.input :status_id, :collection => Status.all,   as: :radio_buttons, :label => false %>
 
-  			<input type="radio" name="status" value="male">Pass<br>
-				<input type="radio" name="status" value="female">Fail<br>
-				<input type="radio" name="status" value="female">Missing
+  			<input type="radio" name="description" value="pass">Pass<br>
+				<input type="radio" name="description" value="fail">Fail<br>
+				<input type="radio" name="description" value="missing">Missing
   		</td>
   	</tr>
 
@@ -47,10 +48,13 @@
   			Image
   		</td>
   		<td>
-  			<img src="/assets/<%= @gtin %>.jpg" alt="" width="200">
+  			<img src="/assets/<%= @gtin.gtin %>.jpg" alt="" width="200">
   		</td>
   		<td>
   			<%#= f.input :status_id, :collection => Status.all,   as: :radio_buttons, :label => false %>
+        <input type="radio" name="image" value="pass">Pass<br>
+        <input type="radio" name="image" value="fail">Fail<br>
+        <input type="radio" name="image" value="missing">Missing
   		</td>
   	</tr>
 
@@ -63,6 +67,10 @@
   		</td>
   		<td>
   			<%#= f.input :status_id, :collection => Status.all,   as: :radio_buttons, :label => false %>
+        <input type="radio" name="man-addr" value="pass">Pass<br>
+        <input type="radio" name="man-addr" value="fail">Fail<br>
+        <input type="radio" name="man-addr" value="missing">Missing
+
   		</td>
   	</tr>
 

@@ -22,6 +22,12 @@ $(document).ready(function() {
 
 
 
+  $('input[type="radio"]').click(function(){
+    alert($(this).attr("name") + " is " +$(this).attr("value"));
+
+  });
+
+
 	$('input[name="audit[status_id]"]:radio').change(function(){
 		// alert($(this).val());
 		var retailer_id = $('#retailer_id').val();

@@ -41,7 +41,8 @@
 			<td><%= gtin.gtin %></td>
 			<td><%= gtin.description %></td>
 			<td>
-				<%= Retailer.find_all_by_id(gtin.audits.map(&:retailer_id).split(",")).map(&:name).join(",") %>
+				<%#= Retailer.find_all_by_id(gtin.audits.map(&:retailer_id).split(",")).map(&:name).join(",") %>
+				<%= gtin.retailers.map(&:name).join(",") %>
 				
 			</td>
 			<td>to do</td>

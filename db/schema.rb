@@ -11,18 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130610165603) do
+ActiveRecord::Schema.define(:version => 20130611112248) do
 
   create_table "audits", :force => true do |t|
-    t.string   "gtin"
+    t.string   "gtin",               :default => "", :null => false
     t.integer  "retailer_id"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.integer  "status_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "gtin_id"
   end
 
   create_table "gtins", :force => true do |t|

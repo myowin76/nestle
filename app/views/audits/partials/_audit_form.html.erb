@@ -101,6 +101,91 @@
       </td>
     </tr>
 
+    <tr>
+      <td>
+        Return To Address
+      </td>
+      <td>
+        <% @data.css("Memo[Name='Return To']").each do |r| %>
+          <%= r.text %>
+        <% end %>
+      </td>
+      <td>
+        <%#= f.input :status_id, :collection => Status.all,   as: :radio_buttons, :label => false %>
+        <input type="radio" name="man-addr" value="pass">Pass<br>
+        <input type="radio" name="man-addr" value="fail">Fail<br>
+        <input type="radio" name="man-addr" value="missing">Missing
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Brand
+      </td>
+      <td>
+        <% @data.css("NameLookups[Name='Standardised Brand']").each do |b| %>
+          <%= b.css("Value").text %>
+        <% end %>
+      </td>
+      <td>
+        <%#= f.input :status_id, :collection => Status.all,   as: :radio_buttons, :label => false %>
+        <input type="radio" name="man-addr" value="pass">Pass<br>
+        <input type="radio" name="man-addr" value="fail">Fail<br>
+        <input type="radio" name="man-addr" value="missing">Missing
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Preparation and Usage
+      </td>
+      <td>
+        <% @data.css("Memo[Name='Preparation and Usage']").each do |pu| %>
+          <%= pu.text %>
+        <% end %>
+      </td>
+      <td>
+        <%#= f.input :status_id, :collection => Status.all,   as: :radio_buttons, :label => false %>
+        <input type="radio" name="man-addr" value="pass">Pass<br>
+        <input type="radio" name="man-addr" value="fail">Fail<br>
+        <input type="radio" name="man-addr" value="missing">Missing
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Storage Type
+      </td>
+      <td>
+        <% @data.css("NameLookups[Name='Storage Type']").each do |st| %>
+          <%= st.css("Value").text %>
+        <% end %>
+      </td>
+      <td>
+        <%#= f.input :status_id, :collection => Status.all,   as: :radio_buttons, :label => false %>
+        <input type="radio" name="man-addr" value="pass">Pass<br>
+        <input type="radio" name="man-addr" value="fail">Fail<br>
+        <input type="radio" name="man-addr" value="missing">Missing
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Storage Type
+      </td>
+      <td>
+        <% @data.css("NameLookups[Name='Storage Type']").each do |st| %>
+          <%= st.css("Value").text %>
+        <% end %>
+      </td>
+      <td>
+        <%#= f.input :status_id, :collection => Status.all,   as: :radio_buttons, :label => false %>
+        <input type="radio" name="man-addr" value="pass">Pass<br>
+        <input type="radio" name="man-addr" value="fail">Fail<br>
+        <input type="radio" name="man-addr" value="missing">Missing
+      </td>
+    </tr>
+
   </tbody>
 </table>	
 

@@ -52,7 +52,9 @@ class AuditsController < ApplicationController
     # Read XML file
     @doc = Nokogiri::XML(File.open("#{Rails.root}/public/nestle.xml")) 
     @products = @doc.xpath("//Product").first
-    debugger
+    @data = @products.css("Data")
+    @ingredients = @data.css("Ingredients")
+    # debugger
     # TO DO... FIND THE PRODUCT NODE AND FETCH THE DATA...
     # TO DO...
 

@@ -1,3 +1,4 @@
-alert("Lets edit form");
+alert("Lets edit for " + $('#retailer_id').find(":selected").text());
+
 
 $(".audit-product-form").html("<%= j render('audits/partials/audit_form') %>");

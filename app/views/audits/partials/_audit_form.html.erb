@@ -5,13 +5,7 @@
 
 	<%#= f.input :field_name, :as => :hidden, :input_html => {:value => store.id} %>
 	<table class="table table-striped" id="tbl-products" border='1'>
-  <!-- <thead>
-    <tr>    
-      <th>GTIN</th>
-      <th>Description</th>
-      <th>Product Id</th>
-    </tr>
-  </thead> -->
+  
   <tbody>
   	<tr>
   		<td>
@@ -19,6 +13,7 @@
   		</td>
   		<td>
   			<%= @gtin.gtin %>
+        <%#= @products.at("Code[Scheme='GTIN']").content %>
   		</td>
       <td>
         <input type="radio" name="gtin" value="pass">Pass<br>
@@ -70,9 +65,41 @@
         <input type="radio" name="man-addr" value="pass">Pass<br>
         <input type="radio" name="man-addr" value="fail">Fail<br>
         <input type="radio" name="man-addr" value="missing">Missing
-
   		</td>
   	</tr>
+
+    <tr>
+      <td>Ingredients</td>
+      <td>
+        <% @data.css("LongTextItems[Name='Ingredients']").css("Text").each do |i| %>
+          <%= i.text %>,
+        <% end %>
+      </td>
+      <td>
+        <%#= f.input :status_id, :collection => Status.all,   as: :radio_buttons, :label => false %>
+        <input type="radio" name="man-addr" value="pass">Pass<br>
+        <input type="radio" name="man-addr" value="fail">Fail<br>
+        <input type="radio" name="man-addr" value="missing">Missing
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Nutrition
+      </td>
+      <td>
+        <% @nutri = @data.css("TextualNutrition[Name='Nutrition']") %>
+        <% @nutri.css("Nutrient").each do |n| %>
+          <%= n.text %>,
+        <% end %>
+      </td>
+      <td>
+        <%#= f.input :status_id, :collection => Status.all,   as: :radio_buttons, :label => false %>
+        <input type="radio" name="man-addr" value="pass">Pass<br>
+        <input type="radio" name="man-addr" value="fail">Fail<br>
+        <input type="radio" name="man-addr" value="missing">Missing
+      </td>
+    </tr>
 
   </tbody>
 </table>	

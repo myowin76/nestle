@@ -171,11 +171,79 @@
 
     <tr>
       <td>
-        Storage Type
+        Pack Type
       </td>
       <td>
-        <% @data.css("NameLookups[Name='Storage Type']").each do |st| %>
-          <%= st.css("Value").text %>
+        <% @data.css("NameLookups[Name='Pack Type']").each do |pk| %>
+          <%= pk.css("Value").text %>
+        <% end %>
+      </td>
+      <td>
+        <%#= f.input :status_id, :collection => Status.all,   as: :radio_buttons, :label => false %>
+        <input type="radio" name="man-addr" value="pass">Pass<br>
+        <input type="radio" name="man-addr" value="fail">Fail<br>
+        <input type="radio" name="man-addr" value="missing">Missing
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Unit (specific)
+      </td>
+      <td>
+        <% @data.css("NameLookups[Name='Unit (specific)']").each do |pk| %>
+          <%= pk.css("Value").text %>
+        <% end %>
+      </td>
+      <td>
+        <%#= f.input :status_id, :collection => Status.all,   as: :radio_buttons, :label => false %>
+        <input type="radio" name="man-addr" value="pass">Pass<br>
+        <input type="radio" name="man-addr" value="fail">Fail<br>
+        <input type="radio" name="man-addr" value="missing">Missing
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Product Marketing
+      </td>
+      <td>
+        <% @data.css("Memo[Name='Product Marketing']").each do |pk| %>
+          <%= pk.text %>
+        <% end %>
+      </td>
+      <td>
+        <%#= f.input :status_id, :collection => Status.all,   as: :radio_buttons, :label => false %>
+        <input type="radio" name="man-addr" value="pass">Pass<br>
+        <input type="radio" name="man-addr" value="fail">Fail<br>
+        <input type="radio" name="man-addr" value="missing">Missing
+      </td>
+    </tr>
+    <% @data.css("Memo[Name='Brand Marketing']") %>
+    <tr>
+      <td>
+        Brand Marketing
+      </td>
+      <td>
+        <% @data.css("Memo[Name='Brand Marketing']").each do |br| %>
+          <%= br.text %>
+        <% end %>
+      </td>
+      <td>
+        <%#= f.input :status_id, :collection => Status.all,   as: :radio_buttons, :label => false %>
+        <input type="radio" name="man-addr" value="pass">Pass<br>
+        <input type="radio" name="man-addr" value="fail">Fail<br>
+        <input type="radio" name="man-addr" value="missing">Missing
+      </td>
+    </tr>
+    <% end %>
+    <tr>
+      <td>
+        Brand Marketing
+      </td>
+      <td>
+        <% @data.css("NameLookups[Name='Recycling Info']").each do |bm| %>
+          <%= bm.css("NameValue").css("Value").text %>
         <% end %>
       </td>
       <td>

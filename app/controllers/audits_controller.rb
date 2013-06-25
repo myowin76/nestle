@@ -8,18 +8,20 @@ class AuditsController < ApplicationController
 
     @retailers = Retailer.order(:name)
     @gtin = Gtin.find_by_gtin(params[:gtin])
-    
+    @audit = Audit.first
     if params[:retailer_id].present?
       
       unless @gtin.retailers.where(:id => params[:retailer_id]).present?
         # @gtin.audits.find_by_retailer_id  
-        audit = @gtin.audits.new(:gtin_id => @gtin.id, :retailer_id => params[:retailer_id])
-        audit.save
+        @audit = @gtin.audits.new(:gtin_id => @gtin.id, :retailer_id => params[:retailer_id])
+        @audit.save
       else
         @audit = @gtin.audits.where(:retailer_id => params[:retailer_id])
       end  
 
-    end  
+    end 
+
+    
     # @audits = Audit.order(:id)
     # debugger
     #page load - without retailer id
@@ -69,8 +71,18 @@ class AuditsController < ApplicationController
 
 
   def update_audit
+    
+    @gtin = Gtin.find_by_gtin(params[:gtin])
+    @id = @gtin.id
     debugger
 
+
+    respond_to do |format|
+      format.html
+      format.js {
+        render :partial => 'update_audit'
+      }
+    end
 
   end
 

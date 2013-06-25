@@ -37,7 +37,37 @@
     </div>
 
 
+    <div id="fail_data" class="reveal-modal">
+      <h1>Retailer Fields</h1>
+      <p>Any Failed content could go in here.</p>
+      <a class="close-reveal-modal">&#215;</a>
+      <section>
+        Field name: <input type="text" name="fieldname"><br>
+        Field Content: 
+        <textarea rows="4" cols="10"></textarea>
+        <a href="#" class="btn" id="save_fail_data">Save</a>
+      </section>
+    </div>
 
+    <div id="image_upload" class="reveal-modal">
+      <h1>Upload Image</h1>
+      <p>Any content could go in here.</p>
+      <a class="close-reveal-modal">&#215;</a>
+
+
+
+
+
+<label for="file">Filename:</label>
+<input type="file" name="file" id="file"><br>
+<input type="submit" name="submit" value="Submit">
+      <%#= render "audits/partials/image_upload" %>
+      
+
+
+
+
+    </div>
 
   </body>
 </html>

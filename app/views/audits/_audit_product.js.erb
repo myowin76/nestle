@@ -1,4 +1,100 @@
 alert("Lets edit for " + $('#retailer_id').find(":selected").text());
 
 
+
 $(".audit-product-form").html("<%= j render('audits/partials/audit_form') %>");
+
+// $('input[type="radio"]').click(function(){
+//     alert($(this).attr("name") + " is " +$(this).attr("value"));
+//   });
+
+$('input[type="radio"]').change(function(e){
+		e.preventDefault();
+
+    var retailer_id = $('#retailer_id').val();
+    
+    if(retailer_id == ""){
+      alert("please choose retailer first");
+      $('input[type="radio"]').prop('checked', false);
+      // return false;
+    }
+    else{
+      var info = {}
+      info['retailer_id'] = retailer_id;
+      info['gtin'] = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+      
+      if($(this).attr("value") == 'pass'){
+      	info['field_name'] = $(this).attr("name");
+      	info['status'] = $(this).attr("value");
+      }
+      else if($(this).attr("value") == 'fail'){
+
+      	info['field_name'] = "Fail Data";
+      	info['status'] = "Fail Data";
+
+      	if($(this).attr("name") == 'image'){
+      		$('#image_upload').reveal({
+				    animation: 'fadeAndPop',                   //fade, fadeAndPop, none
+				    closeonbackgroundclick: false,              //if you click background will modal close?
+	      	});	
+      	}
+      	else{
+      		$('#fail_data').reveal({
+				    animation: 'fadeAndPop',                   //fade, fadeAndPop, none
+				    closeonbackgroundclick: false,              //if you click background will modal close?
+	      	});	
+      	}
+      	
+      }
+      else{
+      	
+      	info['field_name'] = "Form Data";
+      	info['status'] = "Form Data";
+      	
+      	if($(this).attr("name") == 'image'){
+      		$('#image_upload').reveal({
+				    animation: 'fadeAndPop',                   //fade, fadeAndPop, none
+				    closeonbackgroundclick: false,              //if you click background will modal close?
+	      	});	
+      	}
+      	else{
+      		$('#fail_data').reveal({
+				    animation: 'fadeAndPop',                   //fade, fadeAndPop, none
+				    closeonbackgroundclick: false,              //if you click background will modal close?
+	      	});	
+      	}
+
+      }
+      
+      // info['content'] = 
+
+      $.ajax({
+        url: '/audits/update_audit',
+        type: "POST",
+        dataType: 'script',
+        data: info,
+        success: function(data){
+
+        }
+      });
+
+    }
+
+
+		// var retailer_id = $('#retailer_id').val();
+		// if(retailer_id == ""){
+		// 	alert("please choose retailer first");
+		// 	return false;
+		// }
+
+
+	});
+
+$('#save_fail_data').on('click', function(){
+	alert("Now send form data to rails and save in retailer fields table.")
+});
+
+
+
+
+

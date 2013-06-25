@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130611112248) do
+ActiveRecord::Schema.define(:version => 20130624141157) do
 
   create_table "audits", :force => true do |t|
     t.string   "gtin",               :default => "", :null => false
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(:version => 20130611112248) do
     t.integer  "audit_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "gtin"
+    t.string   "status"
   end
 
   add_index "retailer_fields", ["audit_id"], :name => "index_retailer_fields_on_audit_id"

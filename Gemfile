@@ -22,6 +22,7 @@ group :production do
 end
 
 group :assets do
+  gem 'jquery-fileupload-rails', "~> 0.4"
 	gem 'sass-rails',   '~> 3.2.3'
   gem 'bootstrap-sass-rails'
   gem 'coffee-rails', '~> 3.2.1'

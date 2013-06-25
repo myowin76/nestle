@@ -43,7 +43,7 @@
   			Image
   		</td>
   		<td>
-  			<img src="/assets/<%= @gtin.gtin %>.jpg" alt="" width="200">
+  			<!-- <img src="/assets/<%#= @gtin.gtin %>.jpg" alt="" width="200"> -->
   		</td>
   		<td>
   			<%#= f.input :status_id, :collection => Status.all,   as: :radio_buttons, :label => false %>
@@ -77,9 +77,9 @@
       </td>
       <td>
         <%#= f.input :status_id, :collection => Status.all,   as: :radio_buttons, :label => false %>
-        <input type="radio" name="man-addr" value="pass">Pass<br>
-        <input type="radio" name="man-addr" value="fail">Fail<br>
-        <input type="radio" name="man-addr" value="missing">Missing
+        <input type="radio" name="ingredients" value="pass">Pass<br>
+        <input type="radio" name="ingredients" value="fail">Fail<br>
+        <input type="radio" name="ingredients" value="missing">Missing
       </td>
     </tr>
 
@@ -95,9 +95,9 @@
       </td>
       <td>
         <%#= f.input :status_id, :collection => Status.all,   as: :radio_buttons, :label => false %>
-        <input type="radio" name="man-addr" value="pass">Pass<br>
-        <input type="radio" name="man-addr" value="fail">Fail<br>
-        <input type="radio" name="man-addr" value="missing">Missing
+        <input type="radio" name="nutrition" value="pass">Pass<br>
+        <input type="radio" name="nutrition" value="fail">Fail<br>
+        <input type="radio" name="nutrition" value="missing">Missing
       </td>
     </tr>
 
@@ -112,9 +112,9 @@
       </td>
       <td>
         <%#= f.input :status_id, :collection => Status.all,   as: :radio_buttons, :label => false %>
-        <input type="radio" name="man-addr" value="pass">Pass<br>
-        <input type="radio" name="man-addr" value="fail">Fail<br>
-        <input type="radio" name="man-addr" value="missing">Missing
+        <input type="radio" name="ReturnToAddress" value="pass">Pass<br>
+        <input type="radio" name="ReturnToAddress" value="fail">Fail<br>
+        <input type="radio" name="ReturnToAddress" value="missing">Missing
       </td>
     </tr>
 
@@ -129,9 +129,9 @@
       </td>
       <td>
         <%#= f.input :status_id, :collection => Status.all,   as: :radio_buttons, :label => false %>
-        <input type="radio" name="man-addr" value="pass">Pass<br>
-        <input type="radio" name="man-addr" value="fail">Fail<br>
-        <input type="radio" name="man-addr" value="missing">Missing
+        <input type="radio" name="brand" value="pass">Pass<br>
+        <input type="radio" name="brand" value="fail">Fail<br>
+        <input type="radio" name="brand" value="missing">Missing
       </td>
     </tr>
 
@@ -219,7 +219,7 @@
         <input type="radio" name="man-addr" value="missing">Missing
       </td>
     </tr>
-    <% @data.css("Memo[Name='Brand Marketing']") %>
+    <% #@data.css("Memo[Name='Brand Marketing']") %>
     <tr>
       <td>
         Brand Marketing
@@ -236,7 +236,7 @@
         <input type="radio" name="man-addr" value="missing">Missing
       </td>
     </tr>
-    <% end %>
+    <% #end %>
     <tr>
       <td>
         Brand Marketing
